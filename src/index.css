@@ -25,7 +25,6 @@ body{
 }
 .textos{
 grid-area:texto;
-height:300px;
 }
 .txt{
   width:100%;

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -7,14 +8,21 @@ class EditorDeMarcado extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: ''
+      input: '',
+      extendido :false
     }
     this.cambioTexto=this.cambioTexto.bind(this);
+    this.extensionTexto=this.extensionTexto.bind(this);
   }
   cambioTexto(event){
     this.setState({
       input: event.target.value
     });
+  }
+  extensionTexto(){
+    this.setState(
+      {extendido : !this.extendido}
+    )
   }
   render() {
     return (
@@ -23,19 +31,19 @@ class EditorDeMarcado extends React.Component {
         <div className="caja editor">
           <div className="barra">
             <h3>Editor</h3>
-            <button><i className="bi bi-x-square-fill h4 "></i></button>
+            <button ><i className="bi bi-x-square-fill h4 "></i></button>
           </div>
           <div className="textos">
-            <textarea value={this.state.input} onChange={this.cambioTexto} className="txt"></textarea>
+            <textarea  value={this.state.input} onChange={this.cambioTexto} className="txt"></textarea>
           </div>
         </div>
         <div className="caja preview">
           <div className="barra">
             <h3>Preview</h3>
-           <button><i className="bi bi-x-square-fill h4 "></i></button>
+           <button ><i className="bi bi-x-square-fill h4 "></i></button>
           </div>
           <div className="textos">
-            <textarea value={this.state.input}className="txt" disabled></textarea>
+            <textarea style={this.extendido? {width:"500px"}:{width:"250px"}} value={this.state.input}className="txt t2" disabled></textarea>
           </div>
         </div>
       </div>
