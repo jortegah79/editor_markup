@@ -1,0 +1,2 @@
+body{background:radial-gradient(#bb8f65,#b89569);color:#000}.caja{border:2px solid #666;box-shadow:3px 2px 6px 3px #7c5521;display:grid;grid-template-areas:"barra" "texto";margin-top:5%;width:50%}.barra{align-items:baseline;background-color:aqua;border-bottom:2px solid #666;display:grid;grid-area:barra;grid-template-areas:"titulo icono";justify-content:space-between;padding:0 10px;width:100%}.textos{grid-area:texto}.txt{height:100%;width:100%}.editor{margin-left:10%}.preview{margin-left:30%}
+/*# sourceMappingURL=main.4a808d12.css.map*/
