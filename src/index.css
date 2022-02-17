@@ -1,7 +1,16 @@
 body{
-  background:radial-gradient(#bb8f65,#b89569);
-  color:rgb(0, 0, 0);
+  background:#C1F4C5;
+  color:#2EB086;
 }
 textarea{
   width:100%;
+}
+#preview{
+  background:#C1F4C5;
+  border:1px solid #2EB086;
+  overflow-y: scroll;
+}
+.verde{
+  background-color: #2EB086;
+  color:#C1F4C5;
 }

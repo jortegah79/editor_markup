@@ -5,13 +5,30 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+const valores=`# ENCABEZADO
+## SUBENCABEZADO
+[ Mi cuenta personal de GITHUB](https://github.com/jortegah79)
 
+function saluda( nombre){
+  return "hola" + nombre;
+}
+  - html responsive en FCC
+  - Javascript en FCC
+  - Frameworks en FCC
 
+  * Esfuerzo
+  * Pasión
+  * Ilusión
+
+  *Me esta encantando este ejercicio
+  
+  Live editor by J.Ortega.
+`;
 class EditorDeMarcado extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: '',
+      input: valores,
       editorExtendido: false,
       previewExtendido: false
     }
@@ -39,59 +56,35 @@ class EditorDeMarcado extends React.Component {
     const texto = this.state.input;
     const marcado = marked(texto);
     return (
-      <div className="container">
-        <h3 className="text-center mt-2 text-light">Editor de marcado de J.Ortega</h3>
-        <div className="row col-12">
-          <div className="col-md-6 container-fluid editor" >
+      <div className="container-fluid ">
+        <h4 className="text-center m-3">Editor de marcado de J.Ortega</h4>
+        <div className="m-md-5 m-1 row">
+          <div className="col-md-6" >
             <Toolbar titulo="Editor" eventoBt={this.extensionEditor} />
-            <textarea value={this.state.input} style={this.state.editorExtendido ? { height: "500px" } : { height: "250px" }} onChange={this.cambioTexto} ></textarea>
+            <textarea id="editor" className="col12" value={this.state.input} style={this.state.editorExtendido ? { height: "500px" } : { height: "250px" }} onChange={this.cambioTexto} ></textarea>
           </div>
-          <div className='col-md-6 container-fluid preview'>
+          <div className='col-md-6'>
             <Toolbar titulo="Preview" eventoBt={this.extensionPreview} />
-            <div className="container bg-dark text-light"dangerouslySetInnerHTML={{ __html: marcado }} style={this.state.previewExtendido ? { height: "500px" } : { height: "250px" }}></div>
+            <div id="preview" className="" dangerouslySetInnerHTML={{ __html: marcado }} style={this.state.previewExtendido ? { height: "500px" } : { height: "250px" }}></div>
           </div>
         </div>
-
       </div>
     );
   }
 }
 
-ReactDOM.render(
-  <EditorDeMarcado />,
-  document.getElementById('root')
-);
-
 function Toolbar(props) {
   return (
-    <div className='row justify-content-between'>
-      <h3>{props.titulo}</h3>
-      <button onClick={props.eventoBt}>X</button>
+    <div className='col-12 verde'>
+      <div className="tbar row justify-content-between">
+        <h6 className="ml-5 mt-1 h4">{props.titulo}</h6>
+        <button onClick={props.eventoBt}>X</button>
+      </div>
     </div>
   );
 };
 
-
-/*
-
-
-function Editor(props) {
-  return (
-    <div>
-      <Toolbar titulo={props.titulo} eventoBt={props.cambioAlto} />
-      <textarea value={this.state.input} style={this.state.editorExtendido ? { height: "500px" } : { height: "250px" }} onChange={props.cambioTXT} className="txt"></textarea>
-    </div>
-  );
-}
-function Preview(props) {
-  const texto = this.state.input;
-  const marcado = marked(texto);
-  return (
-    <div>
-      <Toolbar titulo={props.titulo} eventoBt={props.cambioAlto} />
-      <div  dangerouslySetInnerHTML={{ __html: marcado }} style={this.state.previewExtendido ? { height: "500px" } : { height: "250px" }}></div>
-    </div>
-  );
-}
-
-*/
+ReactDOM.render(
+  <EditorDeMarcado />,
+  document.getElementById('root')
+);
