@@ -1,7 +1,10 @@
+/* eslint-disable react/no-danger-with-children */
 
+import { marked } from 'marked';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+
 
 
 class EditorDeMarcado extends React.Component {
@@ -9,41 +12,51 @@ class EditorDeMarcado extends React.Component {
     super(props);
     this.state = {
       input: '',
-      extendido :false
+      editorExtendido: false,
+      previewExtendido: false
     }
-    this.cambioTexto=this.cambioTexto.bind(this);
-    this.extensionTexto=this.extensionTexto.bind(this);
+    this.cambioTexto = this.cambioTexto.bind(this);
+    this.extensionEditor = this.extensionEditor.bind(this);
+    this.extensionPreview = this.extensionPreview.bind(this);
   }
-  cambioTexto(event){
+  cambioTexto(event) {
     this.setState({
       input: event.target.value
     });
   }
-  extensionTexto(){
+  extensionEditor() {
     this.setState(
-      {extendido : !this.extendido}
+      { editorExtendido: !this.state.editorExtendido }
     )
   }
+  extensionPreview() {
+    this.setState(
+      { previewExtendido: !this.state.previewExtendido }
+    )
+  }
+  
   render() {
+    const texto=this.state.input;
+    const marcado=marked(texto);
     return (
       <div>
-        <h1 className="display-4 text-center text-light bg-success border-bottom">Editor de marcado de J.Ortega</h1>
-        <div className="caja editor">
-          <div className="barra">
+        <h1 >Editor de marcado de J.Ortega</h1>
+        <div>
+          <div >
             <h3>Editor</h3>
-            <button ><i className="bi bi-x-square-fill h4 "></i></button>
+            <button onClick={this.extensionEditor}>X</button>
           </div>
-          <div className="textos">
-            <textarea  value={this.state.input} onChange={this.cambioTexto} className="txt"></textarea>
+          <div >
+            <textarea value={this.state.input} style={this.state.editorExtendido? { height: "500px" } : { height: "250px" }} onChange={this.cambioTexto} ></textarea>
           </div>
         </div>
-        <div className="caja preview">
-          <div className="barra">
+        <div >
+          <div>
             <h3>Preview</h3>
-           <button ><i className="bi bi-x-square-fill h4 "></i></button>
+            <button onClick={this.extensionPreview} >X</button>
           </div>
-          <div className="textos">
-            <textarea style={this.extendido? {width:"500px"}:{width:"250px"}} value={this.state.input}className="txt t2" disabled></textarea>
+          <div>                    
+            <div   dangerouslySetInnerHTML={{__html:marcado}} style={this.state.previewExtendido? { height: "500px" } : { height: "250px" }}></div>
           </div>
         </div>
       </div>
@@ -57,3 +70,79 @@ ReactDOM.render(
 );
 
 
+
+/*
+
+class EditorDeMarcado extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: '',
+      editorExtendido: false,
+      previewExtendido: false
+    }
+    this.cambioTexto = this.cambioTexto.bind(this);
+    this.extensionEditor = this.extensionEditor.bind(this);
+    this.extensionPreview = this.extensionPreview.bind(this);
+  }
+  cambioTexto(event) {
+    this.setState({
+      input: event.target.value
+    });
+  }
+  extensionEditor() {
+    this.setState(
+      { editorExtendido: !this.state.editorExtendido }
+    )
+  }
+  extensionPreview() {
+    this.setState(
+      { previewExtendido: !this.state.previewExtendido }
+    )
+  }
+  render() {
+
+    return (
+      <div>
+        <h1 className="">Editor de marcado de J.Ortega</h1>
+        <Editor titulo="Editor" cambioTXT={this.cambioTexto} cambioAlto={this.extensionEditor} />
+        <Preview titulo="Preview" cambioAlto={this.extensionPreview} />
+      </div>
+    );
+  }
+};
+
+function Editor(props) {
+  return (
+    <div>
+      <Toolbar titulo={props.titulo} eventoBt={props.cambioAlto} />
+      <textarea value={this.state.input} style={this.state.editorExtendido ? { height: "500px" } : { height: "250px" }} onChange={props.cambioTXT} className="txt"></textarea>
+    </div>
+  );
+}
+function Preview(props) {
+  const texto = this.state.input;
+  const marcado = marked(texto);
+  return (
+    <div>
+      <Toolbar titulo={props.titulo} eventoBt={props.cambioAlto} />
+      <div  dangerouslySetInnerHTML={{ __html: marcado }} style={this.state.previewExtendido ? { height: "500px" } : { height: "250px" }}></div>
+    </div>
+  );
+}
+function Toolbar(props) {
+  return (
+    <div>
+      <h3>{props.titulo}</h3>
+      <button onClick={props.eventoBt}>X</button>
+    </div>
+  );
+};
+
+ReactDOM.render(
+  <EditorDeMarcado />,
+  document.getElementById('root')
+);
+
+
+*/

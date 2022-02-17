@@ -2,13 +2,10 @@ body{
   background:radial-gradient(#bb8f65,#b89569);
   color:rgb(0, 0, 0);
 }
-.caja{
+/*.caja{
   border:2px solid #666;
   width:50%;
-  display:grid;
-  grid-template-areas: 
-  "barra"
-  "texto";
+  
   margin-top: 5%;
   box-shadow: 3px 2px 6px 3px rgb(124, 85, 33);
 }
@@ -21,7 +18,7 @@ body{
   grid-area: barra;
   justify-content: space-between;
   align-items: baseline;
- padding:0 10px;
+  padding:0 10px;
 }
 .textos{
 grid-area:texto;
@@ -35,4 +32,4 @@ grid-area:texto;
 }
 .preview{
   margin-left:30%;
-}
+}*/
