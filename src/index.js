@@ -7,22 +7,44 @@ import './index.css';
 
 const valores=`# ENCABEZADO
 ## SUBENCABEZADO
+### OTRO ENCABEZADO
 [ Mi cuenta personal de GITHUB](https://github.com/jortegah79)
 
-function saluda( nombre){
-  return "hola" + nombre;
+\`<div>CODIGO...</div>\`
 }
-  - html responsive en FCC
-  - Javascript en FCC
-  - Frameworks en FCC
+  - And of course there are lists.
+    - Some are bulleted.
+      - With different indentation levels.
+        - That look like this.
 
   * Esfuerzo
   * Pasión
   * Ilusión
-
-  *Me esta encantando este ejercicio
   
+  1. Prueba
+  1. Avanza
+  1. Consiguelo
+  
+  
+  Text attributes _italic_, **bold**, 
+\`monospace\`, ~~strikethrough~~, INCLUSO ambas **_ambas_**.
+ 
+ > Un blockquote
+
+\`\`\`
+// this is multi-line code:
+
+function anotherExample(firstLine, lastLine) {
+  if (firstLine == '\`\`\`' && lastLine == '\`\`\`') {
+    return multiLineCode;
+  }
+}
+\`\`\`
+
+![embutido](https://revistadigital.inesem.es/informatica-y-tics/files/2016/02/Java-Inesem.jpg)
+
   Live editor by J.Ortega.
+
 `;
 class EditorDeMarcado extends React.Component {
   constructor(props) {
