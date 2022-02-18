@@ -3,21 +3,22 @@ body{
   color:#2EB086;
 }
 .app-titulo{
-  text-align:center;
-  text-shadow:3px 2px 9px 4px #444; 
+  text-align:center; 
 }
 .app-completo{
   width:90%;
   margin:0 auto;
   display:grid;
-  grid-template-columns:1fr 1fr; 
+  grid-template-columns:50% 50%; 
   justify-content:space-between;  
 }
 .app-editor{
   margin:0 20px;
   border-radius: 20px; 
+  
 }
-.app-preview{ 
+.app-preview{
+  
   margin:0 20px;
   border-radius: 20px; 
 }
@@ -34,24 +35,21 @@ body{
   margin-left:40%;
 }
 .barra-div button{
-  width:50px;
-  height:40px;
+  width:25px;
+  height:20px;  
 }
 #preview{
   background:#C1F4C5;
   border:1px solid #2EB086;  
+  position:inherit;
+  padding:10px;
   overflow-y: scroll;
 }
 textarea{
   width:99%;
   border-radius:0 0 12px 12px;
 }
-#preview{
-  background:#C1F4C5;
-  border:1px solid #2EB086;
-  padding:10px;
-  overflow-y: scroll;
-}
+
 .verde{
   background-color: #2EB086;
   color:#C1F4C5;
@@ -63,8 +61,8 @@ pre{
 }
 @media screen and (max-width:768px){
   .app-completo{
-    width:100%;
-    grid-template-columns:1fr;
+    width:90%;
+    grid-template-columns:100%;
     grid-template-rows:1fr 1fr;
   }
   .app-editor{
@@ -75,5 +73,10 @@ pre{
   .app-preview{
     width:95%;
     margin:20px 5px;    
+  }
+  #preview{
+    position:absolute;
+    width:80%;
+    overflow-y: scroll;
   }
 }
