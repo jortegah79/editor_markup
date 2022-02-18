@@ -86,11 +86,11 @@ class EditorDeMarcado extends React.Component {
         <div className="app-completo">
           <div className="app-editor" >
             <Toolbar titulo="Editor" eventoBt={this.extensionEditor} />
-            <textarea id="editor" className="col12" value={this.state.input} style={this.state.editorExtendido ? { height: "700px" } : { height: "250px" }} onChange={this.cambioTexto} ></textarea>
+            <textarea id="editor" value={this.state.input} style={this.state.editorExtendido ? { height: "750px" } : { height: "250px" }} onChange={this.cambioTexto} ></textarea>
           </div>
           <div className="app-preview">
             <Toolbar titulo="Preview" eventoBt={this.extensionPreview} />
-            <div id="preview" className="" dangerouslySetInnerHTML={{ __html: marcado }} style={this.state.previewExtendido ? { height: "700px" } : { height: "250px" }}></div>
+            <div id="preview" dangerouslySetInnerHTML={{ __html: marcado }} style={this.state.previewExtendido ? { height: "700px" } : { height: "250px" }}></div>
           </div>
         </div>
       </div>
@@ -102,7 +102,7 @@ function Toolbar(props) {
   return (
     <div className='barra verde'>
       <div className="barra-div">
-        <h3 className="">{props.titulo}</h3>
+        <h3 className="h3">{props.titulo}</h3>
         <button onClick={props.eventoBt}>X</button>
       </div>
     </div>

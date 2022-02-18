@@ -14,29 +14,34 @@ body{
   justify-content:space-between;  
 }
 .app-editor{
-  margin:0 20px;  
-  min-width:90%;
-  box-shadow:3px 2px 9px 4px #444;
-  border-radius:12px;
+  margin:0 20px;
+  border-radius: 20px; 
 }
-.app-preview{
-  min-width:90%;
-  margin:0 20px;  
-  box-shadow:3px 2px 9px 4px #444;
-  border-radius:12px;
+.app-preview{ 
+  margin:0 20px;
+  border-radius: 20px; 
 }
-.barra-div{
-  grid-area:preview;
-  display:flex;
+.barra-div{  
+  display:grid;
+  grid-template-columns:5fr 60px;  
  justify-content:space-between;
+ align-items: baseline;
   border-radius:12px;
-  height:30px;
-  align-items:center;
+  
+  
  }
-.barra-div h3{
+.barra-div h3{  
   margin-left:40%;
 }
-
+.barra-div button{
+  width:50px;
+  height:40px;
+}
+#preview{
+  background:#C1F4C5;
+  border:1px solid #2EB086;  
+  overflow-y: scroll;
+}
 textarea{
   width:99%;
   border-radius:0 0 12px 12px;
@@ -44,6 +49,7 @@ textarea{
 #preview{
   background:#C1F4C5;
   border:1px solid #2EB086;
+  padding:10px;
   overflow-y: scroll;
 }
 .verde{
@@ -61,8 +67,13 @@ pre{
     grid-template-columns:1fr;
     grid-template-rows:1fr 1fr;
   }
-  .app-editor,.app-preview{
+  .app-editor{
+    width:95%;    
+    margin:20px 5px;
+    
+  }
+  .app-preview{
     width:95%;
-    margin:10px 5px;
+    margin:20px 5px;    
   }
 }
